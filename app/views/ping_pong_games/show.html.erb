@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dateplayer:</strong>
+  <%= @ping_pong_game.datePlayer %>
+</p>
+
+<p>
+  <strong>Opponent:</strong>
+  <%= @ping_pong_game.opponent %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @ping_pong_game.score %>
+</p>
+
+<p>
+  <strong>Score2:</strong>
+  <%= @ping_pong_game.score2 %>
+</p>
+
+<%= link_to 'Edit', edit_ping_pong_game_path(@ping_pong_game) %> |
+<%= link_to 'Back', ping_pong_games_path %>

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119003939) do
+ActiveRecord::Schema.define(version: 20180120204735) do
+
+  create_table "ping_pong_games", force: :cascade do |t|
+    t.string   "datePlayer"
+    t.string   "opponent"
+    t.integer  "score"
+    t.integer  "score2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "player"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -2,4 +2,29 @@
 
 <div class="alert alert-warning" role="alert">This is a sample page. Replace link in the header with your own.</div>
 
-<%= image_tag('history.png') %>
+
+<table>
+  <tr>
+    <th>Date Played &nbsp; &nbsp; &nbsp;</th>
+    <th>Opponent</th>
+    <th>Score</th>
+    <th>Result</th>
+  </tr>
+
+
+<% @games.each do |game| %>
+  <tr>
+    <td><%= game.datePlayer %> </td>
+    <% @op = @users.where(id: game.opponent).first %>
+    <td><%= @op.email %>   </td>
+    <td><%= game.score %>      </td>
+    <% @res = "W" %>
+    <% if game.score.to_i < game.score2.to_i %>
+    <% @res = "L" %>
+    <% end %>
+    <td><%= @res %> </td>
+  </tr>
+<% end %>
+
+
+</table>

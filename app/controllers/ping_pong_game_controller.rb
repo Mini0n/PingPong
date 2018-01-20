@@ -1,2 +1,0 @@
-class PingPongGameController < ApplicationController
-end

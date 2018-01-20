@@ -2,12 +2,99 @@
 
 <div class="alert alert-warning" role="alert">This is a sample page. Replace link in the header with your own.</div>
 
-# <%= image_tag('log_game.png') %>
 
 
-<%= form_tag("/newGame", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
+
+<%= form_tag("/ping_pong_games", method: "post") do %>
+  <%= label_tag(:datePlayed, "Daye played:") %>
+  <%= select_tag(:month, options_for_select(
+    [
+      ['Enero',     1],
+      ['Febrero',   2],
+      ['Marzo',     3],
+      ['Abril',     4],
+      ['Mayo',      5],
+      ['Junio',     6],
+      ['Julio',     7],
+      ['Agosto',    8],
+      ['Septiembre',9],
+      ['Octubre',   10],
+      ['Noviembre', 11],
+      ['Diciembre', 12]
+    ], 1
+  )) %>
+  <%= select_tag(:day, options_for_select(
+    [
+      ['1',   1],
+      ['2',   2],
+      ['3',   3],
+      ['4',   4],
+      ['5',   5],
+      ['6',   6],
+      ['7',   7],
+      ['8',   8],
+      ['9',   9],
+      ['10', 10],
+      ['11', 11],
+      ['13', 12],
+      ['14', 12],
+      ['15', 12],
+      ['16', 12],
+      ['17', 12],
+      ['18', 12],
+      ['19', 12],
+      ['20', 12],
+      ['21', 12],
+      ['22', 12],
+      ['23', 12],
+      ['24', 12],
+      ['25', 12],
+      ['26', 12],
+      ['27', 12],
+      ['28', 12],
+      ['29', 12],
+      ['30', 12],
+      ['31', 12]
+    ], 15
+  )) %>
+  <%= select_tag(:year, options_for_select(
+    [
+      ['2018',   1],
+      ['2017',   2],
+      ['2016',   3],
+      ['2015',   4],
+      ['2014',   5],
+      ['2013',   6],
+      ['2012',   7],
+      ['2011',   8],
+      ['2010',   9]
+    ], 1
+  )) %>
+
+  <br>
+  <br>
+  <%= label_tag(:q, "Oponent:") %>
+
+  <% opps_array = User.all.map { |opp| [opp.email, opp.id] } %>
+  <%= select_tag(:opponent_id, options_for_select(opps_array)) %>
+
+
+  <br>
+  <br>
+  <%= label_tag(:myScore, "Your Score:") %>
+  <%= text_field_tag(:myScore) %>
+
+  <br>
+  <br>
+  <%= label_tag(:theirScore, "Their Score:") %>
+  <%= text_field_tag(:theirScore) %>
+
+  <br>
+  <br>
+  <%= submit_tag("Save") %>
+
+
+
+
 
 <% end %>
